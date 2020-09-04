@@ -21,8 +21,12 @@ The idea for this is that:
 # Imports
 # =============================================================================
 from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
 from Bio.Alphabet import generic_rna
+import os
 import sys
+from scipy import stats
 
 # =============================================================================
 # Declares
@@ -34,6 +38,7 @@ import sys
 PROTEIN = sys.argv[1]
 TRANSCRIPTS = sys.argv[2]
 OUTPUT = sys.argv[3]
+ERRORS = {}
 
 # =============================================================================
 # Helper functions
@@ -50,12 +55,22 @@ def Process(PROTEIN_DESC, PROTEIN_SEQ, TRANSCRIPT_DESC, TRANSCRIPT_SEQ):
     
     #Loop over TRANSCRIPT_SEQ
     start = 0
+    
     NT_SEQ_LENGTH = len(PROTEIN_SEQ) * 3
+    
     while start < len(str(TRANSCRIPT_SEQ)):
         try:
-            coding_dna = TRANSCRIPT_SEQ[start: start + NT_SEQ_LENGTH].translate() #translated
+            #[including: up to but excluding]
+            coding_dna = TRANSCRIPT_SEQ[start : start + NT_SEQ_LENGTH] #translated
+            if len(str(coding_dna)) % 3 == 0:
+                coding_dna = TRANSCRIPT_SEQ[start : start + NT_SEQ_LENGTH].translate(table='Standard')
+            else:
+                start += 1
+                continue
+            #print(coding_dna)
         except:
             pass
+        
         #if start == 202:
         #    print(start, coding_dna, "\n", len(coding_dna))
         #print(coding_dna)
@@ -64,6 +79,9 @@ def Process(PROTEIN_DESC, PROTEIN_SEQ, TRANSCRIPT_DESC, TRANSCRIPT_SEQ):
             #print("#### CODONS", TRANSCRIPT_SEQ[start: start + NT_SEQ_LENGTH + 3]) # has stop codon
             #print("\n#### CODONS", TRANSCRIPT_SEQ[start: start + NT_SEQ_LENGTH]) # NO stop codon
             break
+        else:
+            pass
+            # print()
         
         start += 1
         #if start == 301: break
@@ -71,18 +89,19 @@ def Process(PROTEIN_DESC, PROTEIN_SEQ, TRANSCRIPT_DESC, TRANSCRIPT_SEQ):
     #end while
     
     return TRANSCRIPT_SEQ[start: start + NT_SEQ_LENGTH]
+#end method
 
 # =============================================================================
 # Main subroutine.
 # =============================================================================
-def progressBar(value, endvalue, bar_length=50):
-
+def progressBar(value, endvalue, bar_length=75):
     percent = float(value) / endvalue
     arrow = '-' * int(round(percent * bar_length)-1) + '>'
     spaces = ' ' * (bar_length - len(arrow))
 
     sys.stdout.write("\rPercent: [{0}] {1}%".format(arrow + spaces, int(round(percent * 100))))
     sys.stdout.flush()
+#end method
 
 
 def main(): # Really to verify things.
@@ -118,7 +137,8 @@ def main(): # Really to verify things.
     return trans_count, prot_count
     #for n, item in enumerate(transcript_list):
     #    print(item, [protein_list[n]])
-    
+#end method
+
 # =============================================================================
 # Main
 # =============================================================================
@@ -134,6 +154,7 @@ print("# =======================================================================
 # sys.exit(1)
       
 # Create empty output file.
+print("# Saving output to:", OUTPUT)
 with open(OUTPUT, "w") as fh:
     fh.write("")
 fh.close()
@@ -144,7 +165,7 @@ successful_count = 0
 num_errors = 0
 errors_IDs = []
 
-
+print("# Opening", PROTEIN, "file")
 with open(PROTEIN, "r") as prot_handle:
     for n, record in enumerate(SeqIO.parse(prot_handle, "fasta")):
         
@@ -157,7 +178,7 @@ with open(PROTEIN, "r") as prot_handle:
         protein_desc = record.description
         protein_seq = record.seq
         
-        
+        # print("# Opening", TRANSCRIPTS, "file")
         with open(TRANSCRIPTS, "r") as transcript_handle:
             for m, transcript_record in enumerate(SeqIO.parse(transcript_handle, "fasta")):
                 if m == n:
@@ -183,6 +204,7 @@ with open(PROTEIN, "r") as prot_handle:
         if len(codons) == 0: #ERROR
             num_errors += 1
             errors_IDs += [transcript_desc]
+            ERRORS[transcript_desc] = {"Protein": protein_seq, "Transcript": transcript_seq}
             continue
         
         successful_count += 1
@@ -197,12 +219,28 @@ prot_handle.close()
 
 #end outer with
 
-print("\nFound:", successful_count)
+print("\n# Found:", successful_count)
 
 print()
-print("Errors:", num_errors)
+print("## Errors ##", num_errors)
 
 for item in errors_IDs: print(item)
+
+print()
+
+print("## Detailed Errors printout ##")
+for item in ERRORS.keys():
+    print(item)
+    print("Protein:", ERRORS[item]["Protein"])
+    if "X" in ERRORS[item]["Protein"]: 
+        #print [pos for pos, char in enumerate(s) if char == c]
+        X_chars = [pos for pos, char in enumerate(ERRORS[item]["Protein"]) if char == "X"]
+        print("## ERROR #1: There is an 'X' character in the protein sequence.", "At position(s):", X_chars)
+        
+        
+    print("Transcript:", ERRORS[item]["Transcript"])
+    print()
+
 # =============================================================================
 # End of file    
 # =============================================================================
