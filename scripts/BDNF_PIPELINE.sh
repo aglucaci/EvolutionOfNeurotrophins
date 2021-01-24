@@ -1,9 +1,15 @@
 #!/bin/bash
+
+# Updated for 2021 analysis
+
 clear
 mkdir -p ../analysis
 now=$(date)
 echo "## Starting pipeline: "$now
 echo ""
+
+BASEDIR="/home/aglucaci/EvolutionOfNeurotrophins"
+
 # ######################################################
 ## Get data
 # ######################################################
@@ -34,18 +40,18 @@ if [ -s ../analysis/BDNF_codons.fasta ]; then
     echo "## Step 1  # Get codons from transcript + protein fasta -- complete"
 else
     #echo "## Step 1  # Get codons from transcript + protein fasta"
-    echo python -W ignore codons.py ../data/BDNF_refseq_protein.fasta ../data/BDNF_refseq_transcript.fasta ../analysis/BDNF_codons.fasta > codon.py_errors.txt
-    python -W ignore codons.py ../data/BDNF_refseq_protein.fasta ../data/BDNF_refseq_transcript.fasta ../analysis/BDNF_codons.fasta > codon.py_errors.txt
+    echo python -W ignore codons.py ../data/2021/BDNF_refseq_protein.fasta ../data/2021/BDNF_refseq_transcript.fasta ../analysis/BDNF_codons.fasta > codon.py_errors.txt
+    python3 -W ignore codons.py ../data/2021/BDNF_refseq_protein.fasta ../data/2021/BDNF_refseq_transcript.fasta ../analysis/BDNF_codons.fasta > codon.py_errors.txt
 fi
 
 #exit 0
 # ######################################################
 # Multiple sequence alignment
 # ######################################################
-if [ ! -s macse_v2.04.jar ];
+if [ ! -s macse_v2.05.jar ];
 then
     echo "## Downloading MACSE2"
-    wget https://bioweb.supagro.inra.fr/macse/releases/macse_v2.04.jar
+    wget https://bioweb.supagro.inra.fr/macse/releases/macse_v2.05.jar
 fi
 
 if [  -s ../analysis/MACSE2_Out_Codons.fas ];
@@ -53,7 +59,7 @@ then
     echo "## Step 2  # Perform MACSE2 codon-msa"
 else
     # Aligning vsia MACSE2 (online via: http://mbb.univ-montp2.fr/MBB/subsection/softExec.php?soft=macse2) (Attempt #3)
-    java -jar macse_v2.04.jar -prog alignSequences -seq ../analysis/BDNF_codons.fasta -gap_op -7 -gap_ext -1 -fs -30 -gc_def 1 -stop -100 -out_AA ../analysis/MACSE2_Out_AA.fas -out_NT ../analysis/MACSE2_Out_Codons.fas
+    java -jar macse_v2.05.jar -prog alignSequences -seq ../analysis/BDNF_codons.fasta -gap_op -7 -gap_ext -1 -fs -30 -gc_def 1 -stop -100 -out_AA ../analysis/MACSE2_Out_AA.fas -out_NT ../analysis/MACSE2_Out_Codons.fas
 fi
 
 # ######################################################
@@ -84,33 +90,89 @@ if [ -s ../analysis/MACSE2_Out_Codons.fas.treefile ];
 then
     echo "## Step 3a # IQ-Tree Treefile exists: "../analysis/MACSE2_Out_Codons.fas.treefile
 else
-    echo iqtree -v -s ../analysis/MACSE2_Out_Codons.fas -st CODON -nt AUTO
-    iqtree -v -s ../analysis/MACSE2_Out_Codons.fas -st CODON -nt AUTO
+    # http://www.iqtree.org/doc/Command-Reference
+    echo iqtree -v -s ../analysis/MACSE2_Out_Codons.fas -st CODON -nt AUTO -m GTR+I+G
+    #iqtree -v -s $BASEDIR"/analysis/MACSE2_Out_Codons.fas" -st CODON -nt AUTO -m GTR+I+G
+    iqtree -s $BASEDIR"/analysis/MACSE2_Out_Codons.fas"
+   
 fi
 
 #../analysis/MACSE2_Out_Codons_recombinants_0.fas
 # iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_0.fas -st CODON -nt AUTO
-if [ -s ../analysis/MACSE2_Out_Codons_recombinants_0.fas.treefile ];
-then
-    echo "## Step 3b # IQ-Tree Treefile exists: "../analysis/MACSE2_Out_Codons_recombinants_0.fas.treefile
-else
-    echo iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_0.fas -st CODON -nt AUTO
-    iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_0.fas -st CODON -nt AUTO
-fi
+#if [ -s ../analysis/MACSE2_Out_Codons_recombinants_0.fas.treefile ];
+#then
+#    echo "## Step 3b # IQ-Tree Treefile exists: "../analysis/MACSE2_Out_Codons_recombinants_0.fas.treefile
+#else
+#    echo iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_0.fas -st CODON -nt AUTO
+#    iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_0.fas -st CODON -nt AUTO
+#fi
 
 #../analysis/MACSE2_Out_Codons_recombinants_1.fas
 #only has 2 sequences
-iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_1.fas -st CODON -nt AUTO
+#iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_1.fas -st CODON -nt AUTO
 
 #../analysis/MACSE2_Out_Codons_recombinants_2.fas
 #iqtree -v -s ../analysis/MACSE2_Out_Codons_recombinants_2.fas -st CODON -nt AUTO
 
 
+if [ -s ../analysis/Recombinants/01192021_BDNF_MACSE_RDP0.fas.treefile ];
+then
+        echo "## Step 4: Tree for Recombinants"
+    else
+        #
+        iqtree -s $BASEDIR"/analysis/Recombinants/01192021_BDNF_MACSE_RDP0.fas"
+fi
+
+
+ALIGNMENT=$BASEDIR"/analysis/Recombinants/01192021_BDNF_MACSE_RDP0.fas"
+RENAMEDAlignment=$BASEDIR"/analysis/Recombinants/01192021_BDNF_MACSE_RDP0_renamed.fas"
+
+if [ -s $RENAMEDAlignment ]; 
+then
+    echo "Renamed file exists"
+else
+    	echo "# Renaming CODON MSA to fit HyPhy expected naming style"
+        python3 rename_codon_msa_for_hyphy.py $ALIGNMENT
+fi
+
+TREE=$BASEDIR"/analysis/Recombinants/01192021_BDNF_MACSE_RDP0.fas.treefile"
+HYPHY=$BASEDIR"/scripts/hyphy-develop/HYPHYMP"
+RES=$BASEDIR"/scripts/hyphy-develop/res"
+
+
+if [ -s $RENAMEDAlignment".MEME.json" ];
+then
+   echo "MEME Output Exists"
+else
+   echo $HYPHY LIBPATH=$RES MEME --alignment $RENAMEDAlignment --tree $TREE
+   $HYPHY LIBPATH=$RES MEME --alignment $RENAMEDAlignment --tree $TREE
+fi
+
+$HYPHY LIBPATH=$RES BUSTED --alignment $RENAMEDAlignment --tree $TREE
+$HYPHY LIBPATH=$RES ABSREL --alignment $RENAMEDAlignment --tree $TREE
+$HYPHY LIBPATH=$RES SLAC --alignment $RENAMEDAlignment --tree $TREE
+$HYPHY LIBPATH=$RES BGM --alignment $RENAMEDAlignment --tree $TREE
+
+
+
+
+exit 1
 # ######################################################
 # Selection Analyses
 # ######################################################
 echo "## Step 4  # Performing selection analyses"
 
+ALIGNMENT=""
+TREE = ""
+
+hyphy MEME --alignment $ALIGNMENT --tree $TREE
+hyphy BUSTED --alignment $ALIGNMENT --tree $TREE
+hyphy ABSREL --alignment $ALIGNMENT --tree $TREE
+hyphy SLAC --alignment $ALIGNMENT --tree $TREE
+hyphy BGM --alignment $ALIGNMENT --tree $TREE
+
+
+exit 1
 # FEL
 if [ ! -s ../analysis/MACSE2_Out_Codons_renamed.fas.FEL.json ]; then
     hyphy FEL --alignment ../analysis/MACSE2_Out_Codons_renamed.fas --tree ../analysis/MACSE2_Out_Codons.fas.treefile

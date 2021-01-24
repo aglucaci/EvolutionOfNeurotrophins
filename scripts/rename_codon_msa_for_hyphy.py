@@ -13,13 +13,14 @@ import os, sys
 from Bio import SeqIO
 
 
-FILES = ["MACSE2_Out_Codons.fas", "MACSE2_Out_Codons_recombinants_1.fas", "MACSE2_Out_Codons_recombinants_2.fas", "MACSE2_Out_Codons_recombinants_0.fas"]
+#FILES = ["MACSE2_Out_Codons.fas", "MACSE2_Out_Codons_recombinants_1.fas", "MACSE2_Out_Codons_recombinants_2.fas", "MACSE2_Out_Codons_recombinants_0.fas"]
 
-
-
+#FILES = ["Recombinants/01192021_BDNF_MACSE_RDP0.fas"]
+FILES = [sys.argv[1]] #Full path to file.
 
 for filename in FILES:
-    fasta = os.path.join("../analysis/", filename)
+    #fasta = os.path.join("../analysis/", filename)
+    fasta = filename
     print("# Processing:", fasta)
     records = []
     

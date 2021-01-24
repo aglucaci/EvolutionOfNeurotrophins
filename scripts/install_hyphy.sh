@@ -6,7 +6,7 @@ git clone --branch develop https://github.com/veg/hyphy.git hyphy-develop
 
 cd hyphy-develop
 
-cmake ./
+cmake .
 # for silverback
 #cmake . -DNOAVX=ON
 
