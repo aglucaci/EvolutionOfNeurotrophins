@@ -14,8 +14,6 @@ library("RColorBrewer")
 library("gplots")
 
 ## Declares
-#seqs <- read.alignment("~/Downloads/alignment_real.fa", format = "fasta")
-#seqs <- read.alignment("MACSE2_Out_NT.fas", format = "fasta", whole.header = TRUE)
 # Load the Alignments
 seqs <- read.alignment("analysis/MACSE2_Out_AA.fas", format = "fasta", whole.header = TRUE)
 
@@ -31,8 +29,6 @@ for (i in 1:length(seqs$nam)) {
     first = strsplit(val, " ")[[1]][3]
     second = strsplit(val, " ")[[1]][4]
   }
-  #print(c(strsplit(val, " ")[[1]][2], strsplit(val, " ")[[1]][3]) )
-  #print(paste(first, second))
   seqs$nam[i] = paste(first, second)
 }
 
