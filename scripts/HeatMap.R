@@ -2,7 +2,6 @@
 ## Reference: http://rstudio-pubs-static.s3.amazonaws.com/267810_a987a37141024db6a24078fdd6be18e8.html
 
 ## First set working directory, manually.
-#setwd("~/Documents/EvolutionOfNeurotrophins/September_2020")
 setwd("~/Documents/BDNF/2021/EvolutionOfNeurotrophins")
 
 ## Installers, this library is important for functionality of this script.
