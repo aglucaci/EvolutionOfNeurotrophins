@@ -51,7 +51,7 @@ heatmap.2(x=aa1,
           col="bluered",
           trace="none",
           labCol=FALSE,
-          cexRow=1,cexCol=1,margins=c(12,8))
+          margins=c(1,9))
 
 ## END OF FILE
 
