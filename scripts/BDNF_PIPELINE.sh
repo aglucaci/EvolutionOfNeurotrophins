@@ -44,6 +44,11 @@ MACSE_SCRIPT=$BASEDIR"/scripts/MACSEv2.sh"
 IQTREE_SCRIPT=$BASEDIR"/scripts/IQTREE.sh"
 GARD_SCRIPT=$BASEDIR"/scripts/GARD.sh"
 TN93_SCRIPT=$BASEDIR"/scripts/TN93.sh"
+FEL_SCRIPT=$BASEDIR"/scripts/FEL.sh"
+MEME_SCRIPT=$BASEDIR"/scripts/MEME.sh"
+BUSTEDS_SCRIPT=$BASEDIR"/scripts/BUSTEDS.sh"
+ABSREL_SCRIPT=$BASEDIR"/scripts/ABSREL.sh"
+SLAC_SCRIPT=$BASEDIR"/scripts/SLAC.sh"
 
 # ######################################################
 # Get codons
@@ -113,7 +118,7 @@ fi
 # Tamuri-Nei 1993 (TN93) Distance
 # ######################################################
 #GENE=$BASEDIR"/analysis/BDNF_codons_renamed.fasta"
-OUTPUT_TN93=$GENE".dst"
+OUTPUT_TN93=$OUTPUT_CODON_MSA".dst"
 
 if [ -s $OUTPUT_TN93 ];
 then
@@ -163,10 +168,67 @@ fi
 
 
 
+# ######################################################
+# Selection Analyses
+# ######################################################
+# FEL
+OUTPUT_FEL=$OUTPUT_CODON_MSA".FEL.json"
+if [ -f $OUTPUT_FEL ];
+then
+   echo "# FEL output already exists"
+else
+   echo qsub -V -l nodes=1:ppn=8 -q epyc $FEL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+   cmd="qsub -V -l nodes=1:ppn=8 -q epyc $FEL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+   jobid_5=$($cmd | cut -d' ' -f3)
+fi
+
+# MEME
+OUTPUT_MEME=$OUTPUT_CODON_MSA".MEME.json"
+
+if [ -f $OUTPUT_MEME ];
+then
+   echo "# MEME output already exists"
+else
+   echo qsub -V -l nodes=1:ppn=8 -q epyc $MEME_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+   cmd="qsub -V -l nodes=1:ppn=8 -q epyc $MEME_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+   jobid_6=$($cmd | cut -d' ' -f3)
+fi
+
+# BUSTEDS
+OUTPUT_BUSTEDS=$OUTPUT_CODON_MSA".BUSTEDS.json"
+if [ -s $OUTPUT_BUSTEDS ];
+then
+   echo "# BUSTEDS output already exists"
+else
+   echo qsub -V -l nodes=1:ppn=8 -q epyc $BUSTEDS_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+   cmd="qsub -V -l nodes=1:ppn=8 -q epyc $BUSTEDS_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+   jobid_7=$($cmd | cut -d' ' -f3)
+fi
 
 
+# ABSREL ##
+OUTPUT_ABSREL=$OUTPUT_CODON_MSA".ABSREL.json"
+if [ -f $OUTPUT_ABSREL ];
+then
+   echo "# ABSREL output already exists"
+else
+   echo qsub -V -l nodes=1:ppn=8 -q epyc $ABSREL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+   cmd="qsub -V -l nodes=1:ppn=8 -q epyc $ABSREL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+   jobid_8=$($cmd | cut -d' ' -f3)
+fi
 
 
+# SLAC ##
+OUTPUT_SLAC=$OUTPUT_CODON_MSA".SLAC.json"
+
+if [ -f $OUTPUT_SLAC ];
+then
+   echo "# SLAC output already exists"
+else
+   echo qsub -V -l nodes=1:ppn=8 -q epyc $SLAC_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+   cmd="qsub -V -l nodes=1:ppn=8 -q epyc $SLAC_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+   jobid_9=$($cmd | cut -d' ' -f3)
+fi
 
 
 
