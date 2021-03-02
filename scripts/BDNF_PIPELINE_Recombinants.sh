@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Updated for 2021 analysis, Comparative evolution of neurotrophins
-#clear
+# Updated for 2021 analysis
+# Create hyphy-specific analysis in order to automate this.
+# @Usage: bash BDNF_PIPELINE_Recombinants.sh
+
+clear
 
 now=$(date)
 echo "## Starting pipeline: "$now
@@ -21,12 +24,13 @@ mkdir -p ../analysis
 # Download Tabular data (CSV)
 
 # ######################################################
-# Software Requirements -- create separate scripts, requirements.txt
+# Software Requirements
 # ######################################################
 # HyPhy, installed via conda version 2.5.8
 #conda install -c bioconda hyphy
 #Installers
-# wget -O macse_v2.05.jar  https://bioweb.supagro.inra.fr/macse/releases/macse_v2.05.jar
+#git clone https://github.com/veg/hyphy-analyses.git
+#wget https://bioweb.supagro.inra.fr/macse/releases/macse_v2.04.jar
 
 HYPHY="/home/aglucaci/hyphy-develop/HYPHYMPI"
 PYTHON="/home/aglucaci/anaconda3/bin/python3.7"
@@ -47,37 +51,145 @@ MEME_SCRIPT=$BASEDIR"/scripts/MEME.sh"
 BUSTEDS_SCRIPT=$BASEDIR"/scripts/BUSTEDS.sh"
 ABSREL_SCRIPT=$BASEDIR"/scripts/ABSREL.sh"
 SLAC_SCRIPT=$BASEDIR"/scripts/SLAC.sh"
+PRIME_SCRIPT=$BASEDIR"/scripts/PRIME.sh"
+BGM_SCRIPT=$BASEDIR"/scripts/BGM.sh"
+FMM_SCRIPT=$BASEDIR"/scripts/FMM.sh"
 
-# ######################################################
-# Get codons
-# ######################################################
-# Uses protein file and transcript to get the CDS.
-# output 'BDNF_codons.fasta' is unaligned.
+DATA_DIR=$BASEDIR"/analysis/Recombinants"
 
-if [ -s $BASEDIR/analysis/BDNF_codons.fasta ]; then
-    echo "# Get codons from transcript + protein fasta -- complete"
-else
-    #echo "## Step 1  # Get codons from transcript + protein fasta"
-    echo $PYTHON -W ignore $CODON_SCRIPT $BASEDIR/data/BDNF_refseq_protein.fasta $BASEDIR/data/BDNF_refseq_transcript.fasta $BASEDIR/analysis/BDNF_codons.fasta > $BASEDIR/scripts/codon.py_errors.txt
-    $PYTHON -W ignore $CODON_SCRIPT $BASEDIR/data/BDNF_refseq_protein.fasta $BASEDIR/data/BDNF_refseq_transcript.fasta $BASEDIR/analysis/BDNF_codons.fasta > $BASEDIR/scripts/codon.py_errors.txt
-fi
+# #####################################################
+# Make a tree
+# #####################################################
 
-# ######################################################
-# Parse out the Human sequence
-# ######################################################
-# Manually parse out the Human sequence from the renamed fasta.
-# This is now called 'BDNF_Human_Reference.fasta'
-#FASTA="/home/aglucaci/EvolutionOfNeurotrophins/analysis/BDNF_codons.fasta"
-FASTA=$BASEDIR"/analysis/BDNF_codons.fasta"
-REF_SEQ=$BASEDIR"/analysis/BDNF_codons_HomoSapiens.fasta"
+for INPUT in $DATA_DIR/*.fas; do
+  echo $INPUT
+  #iqtree output
+  OUTPUT_IQTREE=$INPUT".treefile"
 
-if [ -s $REF_SEQ ]; 
-then
-   echo "# Human reference sequence exists"
-else
-   echo $PYTHON $BASEDIR"/scripts/separate_human_sequence.py" $FASTA
-   $PYTHON $BASEDIR"/scripts/separate_human_sequence.py" $FASTA
-fi
+  if [ -s $OUTPUT_IQTREE ];
+  then
+     echo "# IQTREE already ran"
+  else
+     echo qsub -V -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT
+     cmd="qsub -V -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT"
+     # launch command and collect job id
+     #jobid_1=$($cmd | cut -d' ' -f3)
+  fi
+ 
+done
+
+
+
+#exit 0
+
+
+# Run Selection Analyses
+
+# SLAC, FEL, BUSTED, MEME, aBSREL
+
+
+for INPUT in $DATA_DIR/*.fas; do
+    OUTPUT_CODON_MSA=$INPUT
+    OUTPUT_IQTREE=$INPUT".treefile"
+    
+    # FEL
+    OUTPUT_FEL=$OUTPUT_CODON_MSA".FEL.json"
+    if [ -f $OUTPUT_FEL ];
+    then
+       echo "# FEL output already exists"
+    else
+       echo qsub -V -l nodes=1:ppn=8 -q epyc $FEL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+       cmd="qsub -V -l nodes=1:ppn=8 -q epyc $FEL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+       jobid_5=$($cmd | cut -d' ' -f3)
+    fi
+
+    # MEME
+    OUTPUT_MEME=$OUTPUT_CODON_MSA".MEME.json"
+
+    if [ -f $OUTPUT_MEME ];
+    then
+        echo "# MEME output already exists"
+    else
+        echo qsub -V -l nodes=1:ppn=8 -q epyc $MEME_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+        cmd="qsub -V -l nodes=1:ppn=8 -q epyc $MEME_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+        jobid_6=$($cmd | cut -d' ' -f3)
+    fi
+
+   # BUSTEDS
+   OUTPUT_BUSTEDS=$OUTPUT_CODON_MSA".BUSTEDS.json"
+   if [ -s $OUTPUT_BUSTEDS ];
+   then
+       echo "# BUSTEDS output already exists"
+   else
+       echo qsub -V -l nodes=1:ppn=8 -q epyc $BUSTEDS_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+       cmd="qsub -V -l nodes=1:ppn=8 -q epyc $BUSTEDS_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+       jobid_7=$($cmd | cut -d' ' -f3)
+   fi
+
+   # ABSREL ##
+   OUTPUT_ABSREL=$OUTPUT_CODON_MSA".ABSREL.json"
+   if [ -f $OUTPUT_ABSREL ];
+   then
+       echo "# ABSREL output already exists"
+   else
+       echo qsub -V -l nodes=1:ppn=8 -q epyc $ABSREL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+       cmd="qsub -V -l nodes=1:ppn=8 -q epyc $ABSREL_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+       jobid_8=$($cmd | cut -d' ' -f3)
+   fi
+
+   # SLAC ##
+   OUTPUT_SLAC=$OUTPUT_CODON_MSA".SLAC.json"
+   if [ -f $OUTPUT_SLAC ];
+   then
+       echo "# SLAC output already exists"
+   else
+       echo qsub -V -l nodes=1:ppn=8 -q epyc $SLAC_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+       cmd="qsub -V -l nodes=1:ppn=8 -q epyc $SLAC_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+       jobid_9=$($cmd | cut -d' ' -f3)
+   fi
+
+   # PRIME ##
+   OUTPUT_PRIME=$OUTPUT_CODON_MSA".PRIME.json"
+   if [ -f $OUTPUT_PRIME ];
+   then
+       echo "# PRIME output already exists"
+   else
+       echo qsub -V -l nodes=1:ppn=8 -q epyc $PRIME_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+       cmd="qsub -V -l nodes=1:ppn=8 -q epyc $PRIME_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+       jobid_10=$($cmd | cut -d' ' -f3)
+   fi
+
+   # BGM ##
+   OUTPUT_BGM=$OUTPUT_CODON_MSA".BGM.json"
+   if [ -f $OUTPUT_BGM ];
+   then
+       echo "# BGM output already exists"
+   else
+       echo qsub -V -l nodes=1:ppn=8 -q epyc $BGM_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+       cmd="qsub -V -l nodes=1:ppn=8 -q epyc $BGM_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+       jobid_11=$($cmd | cut -d' ' -f3)
+   fi
+
+   # FMM ##
+   OUTPUT_FMM=$OUTPUT_CODON_MSA".FMM.json"
+   if [ -f $OUTPUT_FMM ];
+   then
+       echo "# FMM output already exists"
+   else
+       echo qsub -V -l nodes=1:ppn=8 -q epyc $FMM_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE
+       cmd="qsub -V -l nodes=1:ppn=8 -q epyc $FMM_SCRIPT -v FASTA=$OUTPUT_CODON_MSA,TREE=$OUTPUT_IQTREE"
+       jobid_11=$($cmd | cut -d' ' -f3)
+   fi
+
+
+done
+
+
+
+
+
+
+exit 0
 
 # ######################################################
 # Rename the fastas sequences
@@ -113,7 +225,7 @@ else
 fi
 
 # ######################################################
-# Tamura-Nei 1993 (TN93) Distance
+# Tamuri-Nei 1993 (TN93) Distance
 # ######################################################
 #GENE=$BASEDIR"/analysis/BDNF_codons_renamed.fasta"
 OUTPUT_TN93=$OUTPUT_CODON_MSA".dst"
@@ -122,8 +234,8 @@ if [ -s $OUTPUT_TN93 ];
 then
    echo "# TN93 calculation already exists"
 else
-   echo qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA
-   cmd="qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA"
+   echo qsub -V -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA
+   cmd="qsub -V -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA"
    jobid_2=$($cmd | cut -d' ' -f3)
 fi
 
@@ -140,13 +252,11 @@ if [ -s $OUTPUT_IQTREE ];
 then
    echo "# IQTREE already ran"
 else
-   echo qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT
-   cmd="qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT"
+   echo qsub -V -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT
+   cmd="qsub -V -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT"
    # launch command and collect job id
    jobid_3=$($cmd | cut -d' ' -f3)
 fi
-
-exit 0
 
 # ######################################################
 # Recombination detection (GARD)
@@ -611,4 +721,4 @@ done
 
 
 #Figures
-# FigTree v 1.4.4
+# FigTree a 1.4.4

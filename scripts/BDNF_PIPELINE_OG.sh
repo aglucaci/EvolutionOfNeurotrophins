@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# Updated for 2021 analysis, Comparative evolution of neurotrophins
-#clear
+# Updated for 2021 analysis
+# Create hyphy-specific analysis in order to automate this.
+clear
 
 now=$(date)
 echo "## Starting pipeline: "$now
 echo ""
 
 # Config file this.
-BASEDIR="/home/aglucaci/PROJECTS_2021/EvolutionOfNeurotrophins"
+BASEDIR="/home/aglucaci/EvolutionOfNeurotrophins"
 cd $BASEDIR
 mkdir -p ../analysis
 
@@ -21,12 +22,13 @@ mkdir -p ../analysis
 # Download Tabular data (CSV)
 
 # ######################################################
-# Software Requirements -- create separate scripts, requirements.txt
+# Software Requirements
 # ######################################################
 # HyPhy, installed via conda version 2.5.8
 #conda install -c bioconda hyphy
 #Installers
-# wget -O macse_v2.05.jar  https://bioweb.supagro.inra.fr/macse/releases/macse_v2.05.jar
+#git clone https://github.com/veg/hyphy-analyses.git
+#wget https://bioweb.supagro.inra.fr/macse/releases/macse_v2.04.jar
 
 HYPHY="/home/aglucaci/hyphy-develop/HYPHYMPI"
 PYTHON="/home/aglucaci/anaconda3/bin/python3.7"
@@ -60,6 +62,7 @@ else
     #echo "## Step 1  # Get codons from transcript + protein fasta"
     echo $PYTHON -W ignore $CODON_SCRIPT $BASEDIR/data/BDNF_refseq_protein.fasta $BASEDIR/data/BDNF_refseq_transcript.fasta $BASEDIR/analysis/BDNF_codons.fasta > $BASEDIR/scripts/codon.py_errors.txt
     $PYTHON -W ignore $CODON_SCRIPT $BASEDIR/data/BDNF_refseq_protein.fasta $BASEDIR/data/BDNF_refseq_transcript.fasta $BASEDIR/analysis/BDNF_codons.fasta > $BASEDIR/scripts/codon.py_errors.txt
+    #python3 -W ignore codons.py ../data/2021/BDNF_refseq_protein.fasta ../data/2021/BDNF_refseq_transcript.fasta ../analysis/BDNF_codons.fasta > codon.py_errors.txt
 fi
 
 # ######################################################
@@ -67,8 +70,7 @@ fi
 # ######################################################
 # Manually parse out the Human sequence from the renamed fasta.
 # This is now called 'BDNF_Human_Reference.fasta'
-#FASTA="/home/aglucaci/EvolutionOfNeurotrophins/analysis/BDNF_codons.fasta"
-FASTA=$BASEDIR"/analysis/BDNF_codons.fasta"
+FASTA="/home/aglucaci/EvolutionOfNeurotrophins/analysis/BDNF_codons.fasta"
 REF_SEQ=$BASEDIR"/analysis/BDNF_codons_HomoSapiens.fasta"
 
 if [ -s $REF_SEQ ]; 
@@ -113,7 +115,7 @@ else
 fi
 
 # ######################################################
-# Tamura-Nei 1993 (TN93) Distance
+# Tamuri-Nei 1993 (TN93) Distance
 # ######################################################
 #GENE=$BASEDIR"/analysis/BDNF_codons_renamed.fasta"
 OUTPUT_TN93=$OUTPUT_CODON_MSA".dst"
@@ -122,8 +124,8 @@ if [ -s $OUTPUT_TN93 ];
 then
    echo "# TN93 calculation already exists"
 else
-   echo qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA
-   cmd="qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA"
+   echo qsub -V -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA
+   cmd="qsub -V -l nodes=1:ppn=2 -q epyc $TN93_SCRIPT -v FASTA=$OUTPUT_CODON_MSA"
    jobid_2=$($cmd | cut -d' ' -f3)
 fi
 
@@ -140,13 +142,11 @@ if [ -s $OUTPUT_IQTREE ];
 then
    echo "# IQTREE already ran"
 else
-   echo qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT
-   cmd="qsub -V -W depend=afterok:$jobid_1 -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT"
+   echo qsub -V -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT
+   cmd="qsub -V -l nodes=1:ppn=16 -q epyc $IQTREE_SCRIPT -v FASTA=$INPUT"
    # launch command and collect job id
    jobid_3=$($cmd | cut -d' ' -f3)
 fi
-
-exit 0
 
 # ######################################################
 # Recombination detection (GARD)

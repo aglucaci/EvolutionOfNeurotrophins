@@ -1,0 +1,3 @@
+
+Error:Duplicate analysis keyword (not case sensitive) in {CLST, Apply clustering methods for phylogeny reconstruction (UPGMA,WPGMA,complete or minimal linkage) to nucleotide, protein and codon data, using MLE of pairwise distances with user-selectable models. These methods produce trees with global molecular clock., ClusterAnalysis.bf}
+Duplicate analysis keyword (not case sensitive) in {CLST, Apply clustering methods for phylogeny reconstruction (UPGMA,WPGMA,complete or minimal linkage) to nucleotide, protein and codon data, using MLE of pairwise distances with user-selectable models. These methods produce trees with global molecular clock., ClusterAnalysis.bf}
