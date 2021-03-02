@@ -1,40 +1,40 @@
 Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript accessions,RefSeq Protein accessions,SPARCLE ID,Curation Status,RefseqSelect,Default sequence
-627,BDNF,brain derived neurotrophic factor,Homo sapiens,human,NM_001709.5,NP_001700.2,10639753,curated,RefseqSelect,default-seq
-12064,Bdnf,brain derived neurotrophic factor,Mus musculus,house mouse,NM_001048142.1,NP_001041607.1,10639753,curated,RefseqSelect,default-seq
-24225,Bdnf,brain-derived neurotrophic factor,Rattus norvegicus,Norway rat,NM_001270630.1,NP_001257559.1,10639753,curated,,default-seq
-58118,bdnf,brain-derived neurotrophic factor,Danio rerio,zebrafish,NM_001308648.1,NP_001295577.1,10639753,curated,,default-seq
+627,BDNF,brain derived neurotrophic factor,Homo sapiens,human,XM_011520280.2,XP_011518582.1,10639753,model,,default-seq
+12064,Bdnf,brain derived neurotrophic factor,Mus musculus,house mouse,NM_001048139.1,NP_001041604.1,10639753,curated,,default-seq
+24225,Bdnf,brain-derived neurotrophic factor,Rattus norvegicus,Norway rat,XM_006234684.4,XP_006234746.1,10639753,model,,default-seq
+58118,bdnf,brain-derived neurotrophic factor,Danio rerio,zebrafish,XM_009303234.3,XP_009301509.1,10639753,model,,default-seq
 396186,BDNF,brain derived neurotrophic factor,Gallus gallus,chicken,XM_015286148.2,XP_015141634.1,10639753,model,,default-seq
 397495,BDNF,brain derived neurotrophic factor,Sus scrofa,pig,XM_005654684.3,XP_005654741.1,10639753,model,,default-seq
-403461,BDNF,brain derived neurotrophic factor,Canis lupus familiaris,dog,XM_005633263.3,XP_005633320.1,10639753,model,,default-seq
+403461,BDNF,brain derived neurotrophic factor,Canis lupus familiaris,dog,XM_038429434.1,XP_038285362.1,,model,,default-seq
 493690,BDNF,brain derived neurotrophic factor,Felis catus,domestic cat,NM_001009828.1,NP_001009828.1,10639753,curated,,default-seq
 503511,BDNF,brain derived neurotrophic factor,Pan troglodytes,chimpanzee,NM_001012441.1,NP_001012443.1,10639753,curated,,default-seq
 554233,BDNF,brain derived neurotrophic factor,Monodelphis domestica,gray short-tailed opossum,XM_007497196.2,XP_007497258.1,10639753,model,,default-seq
 617701,BDNF,brain derived neurotrophic factor,Bos taurus,cattle,XM_005216334.4,XP_005216391.1,10639753,model,,default-seq
 701245,BDNF,brain derived neurotrophic factor,Macaca mulatta,Rhesus monkey,XM_015114598.2,XP_014970084.1,10639753,model,,default-seq
-751584,BDNF,brain derived neurotrophic factor,Taeniopygia guttata,zebra finch,XM_012573739.3,XP_012429193.1,10639753,model,,default-seq
+751584,BDNF,brain derived neurotrophic factor,Taeniopygia guttata,zebra finch,XM_012573737.3,XP_012429191.1,10639753,model,,default-seq
 100009689,BDNF,brain derived neurotrophic factor,Equus caballus,horse,NM_001081787.1,NP_001075256.1,10639753,curated,,default-seq
-100037853,bdnf,brain-derived neurotrophic factor,Xenopus tropicalis,tropical clawed frog,XM_031899708.1,XP_031755568.1,,model,,default-seq
+100037853,bdnf,brain-derived neurotrophic factor,Xenopus tropicalis,tropical clawed frog,XM_012960378.2,XP_012815832.1,10639753,model,,default-seq
 100081142,BDNF,brain derived neurotrophic factor,Ornithorhynchus anatinus,platypus,XM_029059317.1,XP_028915150.1,10639753,model,,default-seq
 100356949,BDNF,brain derived neurotrophic factor,Oryctolagus cuniculus,rabbit,XM_017345633.1,XP_017201122.1,10639753,model,,default-seq
-100409412,BDNF,brain derived neurotrophic factor,Callithrix jacchus,white-tufted-ear marmoset,XM_009007854.3,XP_009006102.1,10639753,model,,default-seq
+100409412,BDNF,brain derived neurotrophic factor,Callithrix jacchus,white-tufted-ear marmoset,XM_002755152.4,XP_002755198.1,10639753,model,,default-seq
 100447350,BDNF,brain derived neurotrophic factor,Pongo abelii,Sumatran orangutan,XM_002821931.2,XP_002821977.1,10639753,model,,default-seq
 100467162,BDNF,brain derived neurotrophic factor,Ailuropoda melanoleuca,giant panda,XM_011226480.3,XP_011224782.2,10639753,model,,default-seq
 100547785,BDNF,brain derived neurotrophic factor,Meleagris gallopavo,turkey,XM_010710698.3,XP_010709000.1,10639753,model,,default-seq
 100564408,bdnf,brain derived neurotrophic factor,Anolis carolinensis,green anole,XM_008118081.2,XP_008116288.1,10639753,model,,default-seq
-100594402,BDNF,brain derived neurotrophic factor,Nomascus leucogenys,northern white-cheeked gibbon,XM_003254347.2,XP_003254395.1,10639753,model,,default-seq
+100594402,BDNF,brain derived neurotrophic factor,Nomascus leucogenys,northern white-cheeked gibbon,XM_003254346.2,XP_003254394.1,10639753,model,,default-seq
 100667885,BDNF,brain derived neurotrophic factor,Loxodonta africana,African savanna elephant,XM_023550772.1,XP_023406540.1,10639753,model,,default-seq
 100691267,bdnf,brain-derived neurotrophic factor,Oreochromis niloticus,Nile tilapia,XM_005466922.3,XP_005466979.1,10639753,model,,default-seq
-100730257,Bdnf,brain derived neurotrophic factor,Cavia porcellus,domestic guinea pig,XM_013147262.2,XP_013002716.1,10639753,model,,default-seq
-100768664,Bdnf,brain derived neurotrophic factor,Cricetulus griseus,Chinese hamster,XM_007653166.4,XP_007651356.1,10639753,model,,default-seq
-100934810,BDNF,brain derived neurotrophic factor,Sarcophilus harrisii,Tasmanian devil,XM_031944159.1,XP_031800019.1,,model,,default-seq
-100958946,BDNF,brain derived neurotrophic factor,Otolemur garnettii,small-eared galago,XM_012814047.1,XP_012669501.1,10639753,model,,default-seq
-100983866,BDNF,brain derived neurotrophic factor,Pan paniscus,pygmy chimpanzee,XM_034932318.1,XP_034788209.1,,model,,default-seq
+100730257,Bdnf,brain derived neurotrophic factor,Cavia porcellus,domestic guinea pig,XM_003465009.4,XP_003465057.2,10639753,model,,default-seq
+100768664,Bdnf,brain derived neurotrophic factor,Cricetulus griseus,Chinese hamster,XM_003512747.5,XP_003512795.1,10639753,model,,default-seq
+100934810,BDNF,brain derived neurotrophic factor,Sarcophilus harrisii,Tasmanian devil,XM_023506303.2,XP_023362071.1,10639753,model,,default-seq
+100958946,BDNF,brain derived neurotrophic factor,Otolemur garnettii,small-eared galago,XM_003781198.1,XP_003781246.1,10639753,model,,default-seq
+100983866,BDNF,brain derived neurotrophic factor,Pan paniscus,pygmy chimpanzee,XM_008955891.2,XP_008954139.1,10639753,model,,default-seq
 101007866,BDNF,brain derived neurotrophic factor,Papio anubis,olive baboon,XM_017948537.3,XP_017804026.1,10639753,model,,default-seq
-101037414,BDNF,brain derived neurotrophic factor,Saimiri boliviensis,Bolivian squirrel monkey,XM_003919940.2,XP_003919989.2,10639753,model,,default-seq
-101066049,bdnf,brain-derived neurotrophic factor,Takifugu rubripes,torafugu,XM_029846527.1,XP_029702387.1,,model,,default-seq
+101037414,BDNF,brain derived neurotrophic factor,Saimiri boliviensis,Bolivian squirrel monkey,XM_003919938.2,XP_003919987.1,10639753,model,,default-seq
+101066049,bdnf,brain-derived neurotrophic factor,Takifugu rubripes,torafugu,XM_011610142.2,XP_011608444.2,,model,,default-seq
 101117275,BDNF,brain derived neurotrophic factor,Ovis aries,sheep,XM_012096129.3,XP_011951519.2,10639753,model,,default-seq
-101134399,BDNF,brain derived neurotrophic factor,Gorilla gorilla,western gorilla,XM_004050851.2,XP_004050899.1,10639753,model,,default-seq
-101167940,bdnf,brain-derived neurotrophic factor,Oryzias latipes,Japanese medaka,XM_020713401.2,XP_020569060.1,10639753,model,,default-seq
+101134399,BDNF,brain derived neurotrophic factor,Gorilla gorilla,western gorilla,XM_004050847.2,XP_004050895.1,10639753,model,,default-seq
+101167940,bdnf,brain-derived neurotrophic factor,Oryzias latipes,Japanese medaka,XM_004067039.4,XP_004067087.1,10639753,model,,default-seq
 101281702,BDNF,brain derived neurotrophic factor,Orcinus orca,killer whale,XM_004263941.3,XP_004263989.1,10639753,model,,default-seq
 101338565,BDNF,brain derived neurotrophic factor,Tursiops truncatus,common bottlenose dolphin,XM_019947883.2,XP_019803442.1,10639753,model,,default-seq
 101350169,LOC101350169,brain derived neurotrophic factor,Trichechus manatus latirostris,Florida manatee,XM_004369733.1,XP_004369790.1,10639753,model,,default-seq
@@ -50,10 +50,10 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 101643198,BDNF,brain derived neurotrophic factor,Echinops telfairi,small Madagascar hedgehog,XM_004708253.2,XP_004708310.1,10639753,model,,default-seq
 101687038,BDNF,brain derived neurotrophic factor,Mustela putorius furo,domestic ferret,XM_004755891.2,XP_004755948.1,10639753,model,,default-seq
 101704465,Bdnf,brain derived neurotrophic factor,Heterocephalus glaber,naked mole-rat,XM_004851581.3,XP_004851638.1,10639753,model,,default-seq
-101793720,BDNF,brain derived neurotrophic factor,Anas platyrhynchos,mallard,XM_027458617.1,XP_027314418.1,10639753,model,,default-seq
+101793720,BDNF,brain derived neurotrophic factor,Anas platyrhynchos,mallard,XM_021274155.3,XP_021129830.1,10639753,model,,default-seq
 101819815,BDNF,brain derived neurotrophic factor,Ficedula albicollis,Collared flycatcher,XM_005046293.2,XP_005046350.1,10639753,model,,default-seq
 101837384,Bdnf,brain derived neurotrophic factor,Mesocricetus auratus,golden hamster,XM_005064810.3,XP_005064867.1,10639753,model,,default-seq
-101867654,LOC101867654,brain derived neurotrophic factor,Melopsittacus undulatus,budgerigar,XM_031050332.2,XP_030906192.1,,model,,default-seq
+101867654,LOC101867654,brain derived neurotrophic factor,Melopsittacus undulatus,budgerigar,XM_005150579.3,XP_005150636.1,10639753,model,,default-seq
 101920877,BDNF,brain derived neurotrophic factor,Falco peregrinus,peregrine falcon,XM_005235654.2,XP_005235711.1,10639753,model,,default-seq
 101940773,BDNF,brain derived neurotrophic factor,Chrysemys picta,Painted turtle,XM_005306369.3,XP_005306426.1,10639753,model,,default-seq
 101954451,Bdnf,brain derived neurotrophic factor,Ictidomys tridecemlineatus,thirteen-lined ground squirrel,XM_005328048.2,XP_005328105.1,10639753,model,,default-seq
@@ -61,13 +61,13 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 102016703,Bdnf,brain derived neurotrophic factor,Chinchilla lanigera,long-tailed chinchilla,XM_005401751.2,XP_005401808.1,10639753,model,,default-seq
 102041696,BDNF,brain derived neurotrophic factor,Geospiza fortis,medium ground-finch,XM_005426937.2,XP_005426994.1,10639753,model,,default-seq
 102053337,BDNF,brain derived neurotrophic factor,Falco cherrug,Saker falcon,XM_005436172.2,XP_005436229.1,10639753,model,,default-seq
-102071426,BDNF,brain derived neurotrophic factor,Zonotrichia albicollis,white-throated sparrow,XM_014270822.2,XP_014126297.1,10639753,model,,default-seq
+102071426,BDNF,brain derived neurotrophic factor,Zonotrichia albicollis,white-throated sparrow,XM_005492322.3,XP_005492379.1,10639753,model,,default-seq
 102092034,BDNF,brain derived neurotrophic factor,Columba livia,rock pigeon,XM_005499331.2,XP_005499388.1,10639753,model,,default-seq
 102104483,BDNF,brain derived neurotrophic factor,Pseudopodoces humilis,Tibetan ground-tit,XM_005530281.1,XP_005530338.1,10639753,model,,default-seq
 102126294,BDNF,brain derived neurotrophic factor,Macaca fascicularis,crab-eating macaque,XM_005578346.2,XP_005578403.1,10639753,model,,default-seq
 102180782,BDNF,brain derived neurotrophic factor,Capra hircus,goat,XM_005690025.2,XP_005690082.2,10639753,model,,default-seq
 102194199,bdnf,brain-derived neurotrophic factor,Pundamilia nyererei,,XM_005724258.1,XP_005724315.1,10639753,model,,default-seq
-102237475,bdnf,brain-derived neurotrophic factor,Xiphophorus maculatus,southern platyfish,XM_023331776.1,XP_023187544.1,10639753,model,,default-seq
+102237475,bdnf,brain-derived neurotrophic factor,Xiphophorus maculatus,southern platyfish,XM_005812534.2,XP_005812591.1,10639753,model,,default-seq
 102247090,BDNF,brain derived neurotrophic factor,Myotis brandtii,Brandt's bat,XM_014545223.1,XP_014400709.1,10639753,model,,default-seq
 102279714,BDNF,brain derived neurotrophic factor,Bos mutus,wild yak,XM_005890667.2,XP_005890729.1,10639753,model,,default-seq
 102298257,bdnf,brain-derived neurotrophic factor,Haplochromis burtoni,Burton's mouthbrooder,XM_005937203.2,XP_005937265.1,10639753,model,,default-seq
@@ -75,7 +75,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 102381545,BDNF,brain derived neurotrophic factor,Alligator sinensis,Chinese alligator,XM_006020695.3,XP_006020757.1,10639753,model,,default-seq
 102395046,BDNF,brain derived neurotrophic factor,Bubalus bubalis,water buffalo,XM_006068006.2,XP_006068068.1,10639753,model,,default-seq
 102440705,BDNF,brain derived neurotrophic factor,Myotis lucifugus,little brown bat,XM_023756374.1,XP_023612142.1,10639753,model,,default-seq
-102445524,BDNF,brain derived neurotrophic factor,Pelodiscus sinensis,Chinese soft-shelled turtle,XM_014574007.2,XP_014429493.1,10639753,model,,default-seq
+102445524,BDNF,brain derived neurotrophic factor,Pelodiscus sinensis,Chinese soft-shelled turtle,XM_006111508.3,XP_006111570.1,10639753,model,,default-seq
 102475289,BDNF,brain derived neurotrophic factor,Tupaia chinensis,Chinese tree shrew,XM_014591303.2,XP_014446789.1,10639753,model,,default-seq
 102511705,BDNF,brain derived neurotrophic factor,Camelus ferus,Wild Bactrian camel,XM_006195083.3,XP_006195145.1,10639753,model,,default-seq
 102532564,BDNF,brain derived neurotrophic factor,Vicugna pacos,alpaca,XM_031681074.1,XP_031536934.1,,model,,default-seq
@@ -90,32 +90,32 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 102911929,Bdnf,brain derived neurotrophic factor,Peromyscus maniculatus bairdii,prairie deer mouse,XM_006980818.2,XP_006980880.1,10639753,model,,default-seq
 102942197,BDNF,brain derived neurotrophic factor,Chelonia mydas,Green sea turtle,XM_007067914.2,XP_007067976.1,10639753,model,,default-seq
 102958723,BDNF,brain derived neurotrophic factor,Panthera tigris altaica,Amur tiger,XM_015544869.1,XP_015400355.1,10639753,model,,default-seq
-102977934,BDNF,brain derived neurotrophic factor,Physeter catodon,sperm whale,XM_028501134.1,XP_028356935.1,10639753,model,,default-seq
+102977934,BDNF,brain derived neurotrophic factor,Physeter catodon,sperm whale,XM_007113738.2,XP_007113800.1,10639753,model,,default-seq
 103017938,BDNF,brain derived neurotrophic factor,Balaenoptera acutorostrata scammoni,,XM_007180991.1,XP_007181053.1,10639753,model,,default-seq
-103035730,bdnf,brain-derived neurotrophic factor,Astyanax mexicanus,Mexican tetra,XM_022667082.1,XP_022522803.1,10639753,model,,default-seq
+103035730,bdnf,brain-derived neurotrophic factor,Astyanax mexicanus,Mexican tetra,XM_007246912.3,XP_007246974.1,10639753,model,,default-seq
 103063519,BDNF,brain derived neurotrophic factor,Python bivittatus,Burmese python,XM_025169672.1,XP_025025440.1,10639753,model,,default-seq
 103085069,BDNF,brain derived neurotrophic factor,Lipotes vexillifer,Yangtze River dolphin,XM_007461679.1,XP_007461741.1,10639753,model,,default-seq
 103126099,BDNF,brain derived neurotrophic factor,Erinaceus europaeus,western European hedgehog,XM_016194241.1,XP_016049727.1,10639753,model,,default-seq
-103139320,bdnf,brain-derived neurotrophic factor,Poecilia formosa,Amazon molly,XM_016672387.1,XP_016527873.1,10639753,model,,default-seq
+103139320,bdnf,brain-derived neurotrophic factor,Poecilia formosa,Amazon molly,XM_007553873.2,XP_007553935.1,10639753,model,,default-seq
 103174983,bdnf,brain-derived neurotrophic factor,Callorhinchus milii,elephant shark,XM_007887667.1,XP_007885858.1,10639753,model,,default-seq
 103206496,BDNF,brain derived neurotrophic factor,Orycteropus afer afer,,XM_007951952.1,XP_007950143.1,10639753,model,,default-seq
-103238537,BDNF,brain derived neurotrophic factor,Chlorocebus sabaeus,green monkey,XM_008003703.1,XP_008001894.1,10639753,model,,default-seq
+103238537,BDNF,brain derived neurotrophic factor,Chlorocebus sabaeus,green monkey,XM_008003703.2,XP_008001894.1,10639753,model,,default-seq
 103252117,BDNF,brain derived neurotrophic factor,Carlito syrichta,Philippine tarsier,XM_008050727.1,XP_008048918.1,10639753,model,,default-seq
 103292699,BDNF,brain derived neurotrophic factor,Eptesicus fuscus,big brown bat,XM_008148947.2,XP_008147169.1,10639753,model,,default-seq
 103365620,bdnf,brain-derived neurotrophic factor,Stegastes partitus,bicolor damselfish,XM_008293095.1,XP_008291317.1,10639753,model,,default-seq
-103378703,bdnf,brain-derived neurotrophic factor,Cynoglossus semilaevis,tongue sole,XM_017032306.1,XP_016887795.1,10639753,model,,default-seq
+103378703,bdnf,brain-derived neurotrophic factor,Cynoglossus semilaevis,tongue sole,XM_008310005.3,XP_008308227.1,10639753,model,,default-seq
 103462396,bdnf,brain-derived neurotrophic factor,Poecilia reticulata,guppy,XM_008405147.2,XP_008403369.1,10639753,model,,default-seq
-103538408,BDNF,brain derived neurotrophic factor,Calypte anna,Anna's hummingbird,XM_030451239.1,XP_030307099.1,,model,,default-seq
+103538408,BDNF,brain derived neurotrophic factor,Calypte anna,Anna's hummingbird,XM_008504781.2,XP_008503003.1,10639753,model,,default-seq
 103552694,BDNF,brain derived neurotrophic factor,Equus przewalskii,Przewalski's horse,XM_008522855.1,XP_008521077.1,10639753,model,,default-seq
 103599960,BDNF,brain derived neurotrophic factor,Galeopterus variegatus,Sunda flying lemur,XM_008584165.1,XP_008582387.1,10639753,model,,default-seq
 103624773,BDNF,brain derived neurotrophic factor,Corvus brachyrhynchos,American crow,XM_008644084.2,XP_008642306.1,10639753,model,,default-seq
 103659367,BDNF,brain derived neurotrophic factor,Ursus maritimus,polar bear,XM_008686880.1,XP_008685102.1,10639753,model,,default-seq
-103748489,Bdnf,brain derived neurotrophic factor,Nannospalax galili,Upper Galilee mountains blind mole rat,XM_029555090.1,XP_029410950.1,,model,,default-seq
-103764539,BDNF,brain derived neurotrophic factor,Manacus vitellinus,golden-collared manakin,XM_018081789.2,XP_017937278.1,10639753,model,,default-seq
+103748489,Bdnf,brain derived neurotrophic factor,Nannospalax galili,Upper Galilee mountains blind mole rat,XM_008851139.2,XP_008849361.1,10639753,model,,default-seq
+103764539,BDNF,brain derived neurotrophic factor,Manacus vitellinus,golden-collared manakin,XM_008931461.3,XP_008929709.1,10639753,model,,default-seq
 103778492,BDNF,brain derived neurotrophic factor,Merops nubicus,carmine bee-eater,XM_008946081.1,XP_008944329.1,10639753,model,,default-seq
 103811115,BDNF,brain derived neurotrophic factor,Acanthisitta chloris,rifleman,XM_009084069.1,XP_009082317.1,10639753,model,,default-seq
 103822085,BDNF,brain derived neurotrophic factor,Serinus canaria,Common canary,XM_009097040.3,XP_009095288.1,10639753,model,,default-seq
-103906808,BDNF,brain derived neurotrophic factor,Aptenodytes forsteri,emperor penguin,XM_019474511.1,XP_019330056.1,10639753,model,,default-seq
+103906808,BDNF,brain derived neurotrophic factor,Aptenodytes forsteri,emperor penguin,XM_009288866.1,XP_009287141.1,10639753,model,,default-seq
 103925753,BDNF,brain derived neurotrophic factor,Pygoscelis adeliae,Adelie penguin,XM_009334518.1,XP_009332793.1,10639753,model,,default-seq
 104009422,BDNF,brain derived neurotrophic factor,Nipponia nippon,crested ibis,XM_009461407.1,XP_009459682.1,10639753,model,,default-seq
 104026574,BDNF,brain derived neurotrophic factor,Pelecanus crispus,Dalmatian pelican,XM_009483459.1,XP_009481734.1,10639753,model,,default-seq
@@ -132,7 +132,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 104318262,BDNF,brain derived neurotrophic factor,Haliaeetus albicilla,white-tailed eagle,XM_009919440.1,XP_009917742.1,10639753,model,,default-seq
 104331794,BDNF,brain derived neurotrophic factor,Opisthocomus hoazin,,XM_009937137.1,XP_009935439.1,10639753,model,,default-seq
 104354654,BDNF,brain derived neurotrophic factor,Leptosomus discolor,cuckoo roller,XM_009961628.1,XP_009959930.1,10639753,model,,default-seq
-104367413,BDNF,brain derived neurotrophic factor,Tyto alba,Barn owl,XM_033007022.1,XP_032862913.1,,model,,default-seq
+104367413,BDNF,brain derived neurotrophic factor,Tyto alba,Barn owl,XM_033007020.1,XP_032862911.1,,model,,default-seq
 104379965,BDNF,brain derived neurotrophic factor,Tauraco erythrolophus,red-crested turaco,XM_009987364.1,XP_009985666.1,10639753,model,,default-seq
 104394627,BDNF,brain derived neurotrophic factor,Chaetura pelagica,chimney swift,XM_010004242.1,XP_010002544.1,10639753,model,,default-seq
 104409217,BDNF,brain derived neurotrophic factor,Nestor notabilis,Kea,XM_010019023.1,XP_010017325.1,10639753,model,,default-seq
@@ -147,25 +147,25 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 104618430,BDNF,brain derived neurotrophic factor,Phaethon lepturus,White-tailed tropicbird,XM_010284015.1,XP_010282317.1,10639753,model,,default-seq
 104631845,BDNF,brain derived neurotrophic factor,Balearica regulorum gibbericeps,East African grey crowned-crane,XM_010298236.1,XP_010296538.1,10639753,model,,default-seq
 104671126,BDNF,brain derived neurotrophic factor,Rhinopithecus roxellana,golden snub-nosed monkey,XM_010374529.2,XP_010372831.1,10639753,model,,default-seq
-104692933,BDNF,brain derived neurotrophic factor,Corvus cornix cornix,,XM_010405240.3,XP_010403542.1,10639753,model,,default-seq
+104692933,BDNF,brain derived neurotrophic factor,Corvus cornix cornix,,XM_010405239.3,XP_010403541.1,10639753,model,,default-seq
 104829468,BDNF,brain derived neurotrophic factor,Haliaeetus leucocephalus,bald eagle,XM_010563723.1,XP_010562025.1,10639753,model,,default-seq
 104873642,Bdnf,brain derived neurotrophic factor,Fukomys damarensis,Damara mole-rat,XM_033764060.1,XP_033619951.1,,model,,default-seq
-104919246,bdnf,brain-derived neurotrophic factor,Larimichthys crocea,large yellow croaker,XM_019260722.2,XP_019116267.1,10639753,model,,default-seq
+104919246,bdnf,brain-derived neurotrophic factor,Larimichthys crocea,large yellow croaker,XM_010731208.3,XP_010729510.1,10639753,model,,default-seq
 104964456,bdnf,brain-derived neurotrophic factor,Notothenia coriiceps,black rockcod,XM_010793243.1,XP_010791545.1,10639753,model,,default-seq
 104982427,BDNF,brain derived neurotrophic factor,Bison bison bison,,XM_010831788.1,XP_010830090.1,10639753,model,,default-seq
-105022251,bdnf,brain-derived neurotrophic factor,Esox lucius,northern pike,XM_020053030.2,XP_019908589.1,10639753,model,,default-seq
+105022251,bdnf,brain-derived neurotrophic factor,Esox lucius,northern pike,XM_010890492.3,XP_010888794.1,10639753,model,,default-seq
 105076551,BDNF,brain derived neurotrophic factor,Camelus bactrianus,Bactrian camel,XM_010964743.1,XP_010963045.1,10639753,model,,default-seq
 105106448,BDNF,brain derived neurotrophic factor,Camelus dromedarius,Arabian camel,XM_031459858.1,XP_031315718.1,,model,,default-seq
 105293721,BDNF,brain derived neurotrophic factor,Pteropus vampyrus,large flying fox,XM_011362565.2,XP_011360867.1,10639753,model,,default-seq
-105463281,BDNF,brain derived neurotrophic factor,Macaca nemestrina,pig-tailed macaque,XM_011710310.2,XP_011708612.1,10639753,model,,default-seq
+105463281,BDNF,brain derived neurotrophic factor,Macaca nemestrina,pig-tailed macaque,XM_011710304.1,XP_011708606.1,10639753,model,,default-seq
 105507710,BDNF,brain derived neurotrophic factor,Colobus angolensis palliatus,,XM_011936307.1,XP_011791697.1,10639753,model,,default-seq
 105528120,BDNF,brain derived neurotrophic factor,Mandrillus leucophaeus,drill,XM_011964715.1,XP_011820105.1,10639753,model,,default-seq
 105572781,BDNF,brain derived neurotrophic factor,Cercocebus atys,sooty mangabey,XM_012031697.1,XP_011887087.1,10639753,model,,default-seq
 105717219,BDNF,brain derived neurotrophic factor,Aotus nancymaae,Ma's night monkey,XM_012452238.1,XP_012307661.1,10639753,model,,default-seq
 105814556,BDNF,brain derived neurotrophic factor,Propithecus coquereli,Coquerel's sifaka,XM_012649556.1,XP_012505010.1,10639753,model,,default-seq
 105860148,BDNF,brain derived neurotrophic factor,Microcebus murinus,gray mouse lemur,XM_020286534.1,XP_020142123.1,10639753,model,,default-seq
-105893071,bdnf,brain-derived neurotrophic factor,Clupea harengus,Atlantic herring,XM_031587459.1,XP_031443319.1,,model,,default-seq
-105916320,bdnf,brain-derived neurotrophic factor,Fundulus heteroclitus,mummichog,XM_021309594.2,XP_021165269.2,,model,,default-seq
+105893071,bdnf,brain-derived neurotrophic factor,Clupea harengus,Atlantic herring,XM_012819411.2,XP_012674865.1,10639753,model,,default-seq
+105916320,bdnf,brain-derived neurotrophic factor,Fundulus heteroclitus,mummichog,XM_012850758.3,XP_012706212.2,,model,,default-seq
 105988089,Bdnf,brain derived neurotrophic factor,Dipodomys ordii,Ord's kangaroo rat,XM_013019592.1,XP_012875046.1,10639753,model,,default-seq
 106033956,BDNF,brain derived neurotrophic factor,Anser cygnoides domesticus,,XM_013177775.1,XP_013033229.1,10639753,model,,default-seq
 106498156,BDNF,brain derived neurotrophic factor,Apteryx mantelli mantelli,,XM_013959299.1,XP_013814753.1,10639753,model,,default-seq
@@ -173,7 +173,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 106544765,BDNF,brain derived neurotrophic factor,Thamnophis sirtalis,,XM_014061142.1,XP_013916617.1,10639753,model,,default-seq
 106824927,BDNF,brain derived neurotrophic factor,Equus asinus,ass,XM_014831462.1,XP_014686948.1,10639753,model,,default-seq
 106861430,BDNF,brain derived neurotrophic factor,Sturnus vulgaris,Common starling,XM_014889810.1,XP_014745296.1,10639753,model,,default-seq
-106894825,BDNF,brain derived neurotrophic factor,Calidris pugnax,ruff,XM_014953771.1,XP_014809257.1,10639753,model,,default-seq
+106894825,BDNF,brain derived neurotrophic factor,Calidris pugnax,ruff,XM_014953769.1,XP_014809255.1,10639753,model,,default-seq
 106924896,bdnf,brain-derived neurotrophic factor,Poecilia mexicana,,XM_014998831.1,XP_014854317.1,10639753,model,,default-seq
 106957890,bdnf,brain-derived neurotrophic factor,Poecilia latipinna,sailfin molly,XM_015049425.1,XP_014904911.1,10639753,model,,default-seq
 106970278,BDNF,brain derived neurotrophic factor,Acinonyx jubatus,cheetah,XM_027072960.1,XP_026928761.1,10639753,model,,default-seq
@@ -183,7 +183,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 107206143,BDNF,brain derived neurotrophic factor,Parus major,Great Tit,XM_015631657.3,XP_015487143.1,10639753,model,,default-seq
 107286944,BDNF,brain derived neurotrophic factor,Protobothrops mucrosquamatus,,XM_015815390.1,XP_015670876.1,10639753,model,,default-seq
 107314325,BDNF,brain derived neurotrophic factor,Coturnix japonica,Japanese quail,XM_015863456.2,XP_015718942.1,10639753,model,,default-seq
-107381608,bdnf,brain-derived neurotrophic factor,Nothobranchius furzeri,turquoise killifish,XM_015953357.1,XP_015808843.1,10639753,model,,default-seq
+107381608,bdnf,brain-derived neurotrophic factor,Nothobranchius furzeri,turquoise killifish,XM_015953355.1,XP_015808841.1,10639753,model,,default-seq
 107512170,BDNF,brain derived neurotrophic factor,Rousettus aegyptiacus,Egyptian rousette,XM_036221046.1,XP_036076939.1,,model,,default-seq
 107531942,BDNF,brain derived neurotrophic factor,Miniopterus natalensis,,XM_016206154.1,XP_016061640.1,10639753,model,,default-seq
 107670730,bdnf,brain-derived neurotrophic factor,Sinocyclocheilus anshuiensis,,XM_016463442.1,XP_016318928.1,10639753,model,,default-seq
@@ -253,9 +253,9 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 113636839,bdnf,brain-derived neurotrophic factor,Tachysurus fulvidraco,yellow catfish,XM_027137186.1,XP_026992987.1,10639753,model,,default-seq
 113905455,BDNF,brain derived neurotrophic factor,Bos indicus x Bos taurus,hybrid cattle,XM_027562786.1,XP_027418587.1,10639753,model,,default-seq
 113913517,BDNF,brain derived neurotrophic factor,Zalophus californianus,California sea lion,XM_027577807.1,XP_027433608.1,10639753,model,,default-seq
-113956595,BDNF,brain derived neurotrophic factor,Corapipo altera,White-ruffed manakin,XM_027663335.1,XP_027519136.1,10639753,model,,default-seq
+113956595,BDNF,brain derived neurotrophic factor,Corapipo altera,White-ruffed manakin,XM_027663334.1,XP_027519135.1,10639753,model,,default-seq
 113978388,BDNF,brain derived neurotrophic factor,Neopelma chrysocephalum,saffron-crested tyrant-manakin,XM_027705303.1,XP_027561104.1,10639753,model,,default-seq
-113995562,BDNF,brain derived neurotrophic factor,Pipra filicauda,Wire-tailed manakin,XM_027735729.1,XP_027591530.1,10639753,model,,default-seq
+113995562,BDNF,brain derived neurotrophic factor,Pipra filicauda,Wire-tailed manakin,XM_027735730.2,XP_027591531.1,10639753,model,,default-seq
 114036167,BDNF,brain derived neurotrophic factor,Vombatus ursinus,common wombat,XM_027852578.1,XP_027708379.1,10639753,model,,default-seq
 114070984,BDNF,brain derived neurotrophic factor,Empidonax traillii,willow flycatcher,XM_027908627.1,XP_027764428.1,10639753,model,,default-seq
 114093712,Bdnf,brain derived neurotrophic factor,Marmota flaviventris,yellow-bellied marmot,XM_027936596.1,XP_027792397.1,10639753,model,,default-seq
@@ -276,7 +276,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 115041223,bdnf,brain-derived neurotrophic factor,Echeneis naucrates,live sharksucker,XM_029498550.1,XP_029354410.1,,model,,default-seq
 115079414,BDNF,brain derived neurotrophic factor,Rhinatrema bivittatum,two-lined caecilian,XM_029582984.1,XP_029438844.1,,model,,default-seq
 115306639,BDNF,brain derived neurotrophic factor,Suricata suricatta,meerkat,XM_029957152.1,XP_029813012.1,,model,,default-seq
-115352126,BDNF,brain derived neurotrophic factor,Aquila chrysaetos chrysaetos,,XM_030039828.1,XP_029895688.1,,model,,default-seq
+115352126,BDNF,brain derived neurotrophic factor,Aquila chrysaetos chrysaetos,,XM_030039826.1,XP_029895686.1,,model,,default-seq
 115355838,bdnf,brain-derived neurotrophic factor,Myripristis murdjan,pinecone soldierfish,XM_030046750.1,XP_029902610.1,,model,,default-seq
 115392362,bdnf,brain-derived neurotrophic factor,Salarias fasciatus,jewelled blenny,XM_030096988.1,XP_029952848.1,,model,,default-seq
 115417238,bdnf,brain-derived neurotrophic factor,Sphaeramia orbicularis,orbiculate cardinalfish,XM_030131251.1,XP_029987111.1,,model,,default-seq
@@ -290,7 +290,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 115805873,bdnf,brain-derived neurotrophic factor,Chanos chanos,milkfish,XM_030766568.1,XP_030622428.1,,model,,default-seq
 115857612,BDNF,brain derived neurotrophic factor,Globicephala melas,long-finned pilot whale,XM_030864833.1,XP_030720693.1,,model,,default-seq
 115904690,BDNF,brain derived neurotrophic factor,Camarhynchus parvulus,,XM_030950284.1,XP_030806144.1,,model,,default-seq
-116034023,bdnf,brain-derived neurotrophic factor,Sander lucioperca,pike-perch,XM_031276596.2,XP_031132456.1,,model,,default-seq
+116034023,bdnf,brain-derived neurotrophic factor,Sander lucioperca,pikeperch,XM_031276596.2,XP_031132456.1,,model,,default-seq
 116090620,Bdnf,brain derived neurotrophic factor,Mastomys coucha,southern multimammate mouse,XM_031371313.1,XP_031227173.1,,model,,default-seq
 116237819,BDNF,brain derived neurotrophic factor,Phasianus colchicus,Ring-necked pheasant,XM_031607204.1,XP_031463064.1,,model,,default-seq
 116324294,bdnf,brain-derived neurotrophic factor,Oreochromis aureus,,XM_031744875.1,XP_031600735.1,,model,,default-seq
@@ -301,7 +301,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 116516397,BDNF,brain derived neurotrophic factor,Thamnophis elegans,Western terrestrial garter snake,XM_032228844.1,XP_032084735.1,,model,,default-seq
 116555191,BDNF,brain derived neurotrophic factor,Sapajus apella,Tufted capuchin,XM_032283691.1,XP_032139582.1,,model,,default-seq
 116599082,BDNF,brain derived neurotrophic factor,Mustela erminea,ermine,XM_032358760.1,XP_032214651.1,,model,,default-seq
-116638304,BDNF,brain derived neurotrophic factor,Phoca vitulina,harbor seal,XM_032414183.1,XP_032270074.1,,model,,default-seq
+116638304,BDNF,brain derived neurotrophic factor,Phoca vitulina,harbor seal,XM_032414178.1,XP_032270069.1,,model,,default-seq
 116682771,bdnf,brain-derived neurotrophic factor,Etheostoma spectabile,orangethroat darter,XM_032509793.1,XP_032365684.1,,model,,default-seq
 116718342,bdnf,brain-derived neurotrophic factor,Xiphophorus hellerii,green swordtail,XM_032560178.1,XP_032416069.1,,model,,default-seq
 116758559,BDNF,brain derived neurotrophic factor,Phocoena sinus,vaquita,XM_032641481.1,XP_032497372.1,,model,,default-seq
@@ -325,7 +325,7 @@ Gene ID,Gene symbol,Description,Scientific name,Common name,RefSeq Transcript ac
 118546649,BDNF,brain derived neurotrophic factor,Halichoerus grypus,gray seal,XM_036109493.1,XP_035965386.1,,model,,default-seq
 118582264,Bdnf,brain derived neurotrophic factor,Onychomys torridus,southern grasshopper mouse,XM_036184983.1,XP_036040876.1,,model,,default-seq
 118628031,BDNF,brain derived neurotrophic factor,Molossus molossus,Pallas's mastiff bat,XM_036258707.1,XP_036114600.1,,model,,default-seq
-118664943,BDNF,brain derived neurotrophic factor,Myotis myotis,,XM_036325692.1,XP_036181585.1,,model,,default-seq
+118664943,BDNF,brain derived neurotrophic factor,Myotis myotis,,XM_036325691.1,XP_036181584.1,,model,,default-seq
 118687480,BDNF,brain derived neurotrophic factor,Molothrus ater,,XM_036384476.1,XP_036240369.1,,model,,default-seq
 118713266,BDNF,brain derived neurotrophic factor,Pipistrellus kuhlii,Kuhl's pipistrelle,XM_036427676.1,XP_036283569.1,,model,,default-seq
 118853508,BDNF,brain derived neurotrophic factor,Trichosurus vulpecula,common brushtail,XM_036763631.1,XP_036619526.1,,model,,default-seq
